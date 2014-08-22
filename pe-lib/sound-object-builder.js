@@ -52,7 +52,7 @@ function soundObjectBuilder(context) {
         var source = createBufferSource(this.buffer, this.pitch, this.originalPlaybackRate);
         this.source = source;
         this.source.gain.value = gain;
-        source.noteOn(time);
+        source.start(time);
         this.endTime = time + this.duration;
     }
     
@@ -82,8 +82,8 @@ function soundObjectBuilder(context) {
         source.gain.linearRampToValueAtTime(0, rEndTime);
         console.log(time);
         console.log(rEndTime);
-        source.noteOn(time);
-        source.noteOff(rEndTime);
+        source.start(time);
+        source.stop(rEndTime);
         this.source = source;
         this.endTime = time + this.duration;
     }
@@ -91,7 +91,7 @@ function soundObjectBuilder(context) {
     function stopAudio(time) {
         if (this.source === undefined) return;
         if (time > this.endTime) return;
-        this.source.noteOff(time);
+        this.source.stop(time);
     }
     
     //create a sound object that plays the audio buffer
