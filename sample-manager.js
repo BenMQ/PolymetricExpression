@@ -657,7 +657,7 @@ var SampleManager = (function (exports, global, Math) {
     // be automatically calculated from the sample. 
     function play(sampleSetName, sampleKey, gain, rate, when, offset, duration) {
         var source = context.createBufferSource();
-        source.gain.value = gain;
+        // source.gain.value = gain;
         source.playbackRate.value = rate;
         source.buffer = sampleSetCollection[sampleSetName][sampleKey];
         source.connect(context.destination);

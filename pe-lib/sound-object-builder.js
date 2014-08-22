@@ -51,7 +51,7 @@ function soundObjectBuilder(context) {
         var gain = controlParams.gain;
         var source = createBufferSource(this.buffer, this.pitch, this.originalPlaybackRate);
         this.source = source;
-        this.source.gain.value = gain;
+        //this.source.gain.value = gain;
         source.start(time);
         this.endTime = time + this.duration;
     }
@@ -74,12 +74,12 @@ function soundObjectBuilder(context) {
         var sEndTime = time + this.duration;
         var rEndTime = sEndTime + r;
         
-        source.gain.value = 0;
-        source.gain.setValueAtTime(0, time);
-        source.gain.linearRampToValueAtTime(maxAmp, aEndTime);
-        source.gain.linearRampToValueAtTime(sustainAmp, dEndTime);
-        source.gain.setValueAtTime(sustainAmp, sEndTime);
-        source.gain.linearRampToValueAtTime(0, rEndTime);
+        // source.gain.value = 0;
+        // source.gain.setValueAtTime(0, time);
+        // source.gain.linearRampToValueAtTime(maxAmp, aEndTime);
+        // source.gain.linearRampToValueAtTime(sustainAmp, dEndTime);
+        // source.gain.setValueAtTime(sustainAmp, sEndTime);
+        // source.gain.linearRampToValueAtTime(0, rEndTime);
         console.log(time);
         console.log(rEndTime);
         source.start(time);
