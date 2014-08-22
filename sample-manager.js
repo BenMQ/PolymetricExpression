@@ -571,9 +571,8 @@ var SampleManager = (function (exports, global, Math) {
                                                 writer.onwriteend = onComplete;
                                                 writer.onerror = reportError;
 
-                                                var bb = new global.BlobBuilder();
-                                                bb.append(data);
-                                                writer.write(bb.getBlob());
+                                                
+                                                writer.write(new Blob(data));
                                             },
                                             reportError);
                                     },
